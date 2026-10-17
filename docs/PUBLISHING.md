@@ -74,6 +74,14 @@ The extension handles personally identifiable information (connected account nam
 
 No remote executable code. No data sale, advertising use, unrelated data transfer, or creditworthiness use. Google API data is used only for the visible quote-saving and document-sync features, consistent with the Limited Use policy.
 
+## Prepared promotional assets
+
+- [Small tile, 440×280](assets/store/tile-440x280.png)
+- [Marquee, 1400×560](assets/store/marquee-1400x560.png)
+- App icon: `extension/icons/128.png`
+
+The original artwork is generated from HTML/CSS by `npm run build:store-assets`, then captured using the local preview server at the named dimensions. These are promotional images; real screenshots from an installed extension are still needed for the store listing.
+
 ## Required assets and review
 
 Prepare real product screenshots with synthetic quotes at a supported store dimension (for example 1280×800), a 128×128 app icon, and the currently required promotional image sizes. Mark UI-preview screenshots clearly if they are from a mock and do not imply live Google sync has been tested.
