@@ -19,9 +19,11 @@ Covered with local fakes, without network access:
 
 `node scripts/preview.mjs` serves the production UI with an isolated fake Chrome API at http://127.0.0.1:4173/library.html. The preview uses synthetic data and labels itself as a preview. It is excluded from all extension ZIPs.
 
-Manually verified in Chrome on October 17, 2026: library rendering, quote creation (count increased from 3 to 4), search (one matching result), favorites (one result), collection filtering (two results), and the compact popup layout.
+Manually verified in Chrome on October 17, 2026: library rendering, quote creation (count increased from 3 to 4), search (one matching result), favorites (one result), collection filtering (two results), the compact popup layout, and a Markdown export downloaded through the interface and inspected on disk.
 
 This preview verifies rendering and UI interactions; it is not an end-to-end Google authorization or Chrome extension installation test.
+
+The release build guard was also checked: `npm run build:release` correctly refuses to package a Drive-enabled release until a real OAuth client is configured.
 
 ## Live release gate
 
