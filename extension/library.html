@@ -3,144 +3,48 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Your library · Quotemark</title>
+    <title>Quotes · Quotemark</title>
     <link rel="stylesheet" href="app.css" />
   </head>
   <body class="library">
     <header class="topbar">
-      <a class="brand" href="library.html"
-        ><span class="brand-mark">❞</span>quotemark<span class="brand-dot"
-          >.</span
-        ></a
-      >
-      <div class="header-actions">
-        <a
-          href="https://github.com/Malanaa/quotemark"
-          target="_blank"
-          rel="noreferrer"
-          >Open source ↗</a
-        ><button id="settings" class="secondary">Settings</button>
-      </div>
+      <a class="brand" href="library.html">quotemark</a>
+      <button id="settings" class="text-button">Settings</button>
     </header>
     <main>
-      <section class="library-intro">
-        <div>
-          <p class="eyebrow">A COLLECTION OF GOOD THINGS</p>
-          <h1>Your world,<br /><em>in other words.</em></h1>
-          <p class="muted">The sentences you stopped for. All in one place.</p>
-        </div>
-        <div class="library-art" aria-hidden="true">
-          <span>“</span>
-          <p>Keep what<br />moves you.</p>
-          <i>the commonplace collection</i>
-        </div>
-      </section>
-      <section id="connection" class="connection" aria-live="polite"></section>
+      <div class="library-heading"><h1>Quotes <span id="count" class="count">0</span></h1><button id="compose" class="primary">Add quote</button></div>
       <div class="library-toolbar">
-        <label class="search"
-          ><span aria-hidden="true">⌕</span
-          ><input
-            id="search"
-            type="search"
-            placeholder="Find a thought, a source, a word…"
-            aria-label="Search quotes" /></label
-        ><select id="filter-collection" aria-label="Filter by collection">
-          <option value="">All collections</option></select
-        ><button id="favorites" class="secondary" aria-pressed="false">
-          ☆ Favorites</button
-        ><button id="compose" class="primary">＋ Add a quote</button>
+        <input id="search" type="search" placeholder="Search quotes" aria-label="Search quotes" />
+        <select id="filter-collection" aria-label="Filter by collection"><option value="">All collections</option></select>
+        <button id="favorites" class="secondary" aria-pressed="false">Favorites</button>
       </div>
-      <div class="section-heading">
-        <h2>Collected words <span id="count" class="count">0</span></h2>
-        <div class="export-actions">
-          <button id="export-md" class="text-button">Export Markdown ↓</button
-          ><button id="export-json" class="text-button">Backup JSON ↓</button>
-        </div>
-      </div>
+      <section id="connection" class="connection" aria-label="Google Drive" aria-live="polite"></section>
       <div id="quotes" class="quotes"></div>
+      <details class="export-actions"><summary>Export</summary><div><button id="export-md" class="text-button">Markdown ↓</button><button id="export-json" class="text-button">JSON backup ↓</button></div></details>
     </main>
-    <footer>
-      <span>A commonplace book for the internet.</span
-      ><a
-        href="https://malanaa.github.io/quotemark/privacy.html"
-        target="_blank"
-        >Your words. Your Drive. Your privacy. ↗</a
-      >
-    </footer>
+    <footer><a href="https://github.com/Malanaa/quotemark" target="_blank" rel="noreferrer">GitHub ↗</a><a href="https://malanaa.github.io/quotemark/privacy.html" target="_blank" rel="noreferrer">Privacy</a></footer>
     <div id="toast" role="status" class="toast" hidden></div>
     <dialog id="compose-dialog">
       <form id="quote-form">
-        <div class="section-heading">
-          <h2>Keep a little something.</h2>
-          <button
-            type="button"
-            class="icon-button close-dialog"
-            aria-label="Close"
-          >
-            ×
-          </button>
-        </div>
-        <label
-          >Quote<textarea
-            name="text"
-            rows="5"
-            maxlength="20000"
-            placeholder="The words you want to remember…"
-            required
-          ></textarea></label
-        ><label
-          >Source title<input
-            name="title"
-            maxlength="500"
-            placeholder="An article, a book, a conversation" /></label
-        ><label
-          >Source link <span class="muted">(optional)</span
-          ><input name="url" type="url" placeholder="https://" /></label
-        ><label
-          >Collection<input name="collection" maxlength="60" required /></label
-        ><label
-          >Your note <span class="muted">(optional)</span
-          ><textarea
-            name="note"
-            maxlength="2000"
-            rows="2"
-            placeholder="Why this stayed with you"
-          ></textarea></label
-        ><button class="primary full" type="submit">Save quote</button>
+        <div class="section-heading"><h2>Add quote</h2><button type="button" class="icon-button close-dialog" aria-label="Close">×</button></div>
+        <label>Quote<textarea name="text" autofocus rows="5" maxlength="20000" placeholder="Paste your quote here" required></textarea></label>
+        <label>Collection<input name="collection" maxlength="60" required /></label>
+        <details class="quote-details"><summary>Source &amp; note</summary>
+          <label>Source title<input name="title" maxlength="500" /></label>
+          <label>Source link<input name="url" type="url" placeholder="https://" /></label>
+          <label>Note<textarea name="note" maxlength="2000" rows="2"></textarea></label>
+        </details>
+        <button class="primary full" type="submit">Save quote</button>
       </form>
     </dialog>
     <dialog id="settings-dialog">
-      <div class="section-heading">
-        <h2>Your little library.</h2>
-        <button class="icon-button close-dialog" aria-label="Close">×</button>
-      </div>
-      <p>
-        Save quotes locally, then connect Google Drive to collect them in
-        formatted monthly documents.
-      </p>
+      <div class="section-heading"><h2>Settings</h2><button class="icon-button close-dialog" aria-label="Close">×</button></div>
+      <p>Sync quotes to monthly Google Docs.</p>
       <div id="settings-connection"></div>
-      <label
-        >Default collection<input
-          id="default-collection"
-          maxlength="60" /></label
-      ><button id="save-settings" class="primary full">Save preferences</button>
-      <p class="hint">
-        Drive uses a “Quotemark” folder, with one document per collection each
-        month. Disconnecting keeps your quotes and documents.
-      </p>
-      <div class="settings-links">
-        <a
-          href="https://malanaa.github.io/quotemark/privacy.html"
-          target="_blank"
-          >Privacy</a
-        ><a
-          href="https://github.com/Malanaa/quotemark/blob/main/docs/GOOGLE-SETUP.md"
-          target="_blank"
-          >Google setup</a
-        ><a href="https://github.com/Malanaa/quotemark" target="_blank"
-          >GitHub ↗</a
-        >
-      </div>
+      <label>Default collection<input id="default-collection" maxlength="60" /></label>
+      <button id="save-settings" class="primary full">Save settings</button>
+      <p class="hint">One document per collection each month, in your Quotemark folder. Disconnecting keeps your quotes and documents.</p>
+      <div class="settings-links"><a href="https://malanaa.github.io/quotemark/privacy.html" target="_blank" rel="noreferrer">Privacy</a><a href="https://github.com/Malanaa/quotemark/blob/main/docs/GOOGLE-SETUP.md" target="_blank" rel="noreferrer">Google setup</a><a href="https://github.com/Malanaa/quotemark" target="_blank" rel="noreferrer">GitHub ↗</a></div>
     </dialog>
     <script type="module" src="app.js"></script>
   </body>

@@ -57,7 +57,6 @@ function renderConnection() {
   const host = $("#connection");
   host.replaceChildren();
   host.classList.toggle("connected", Boolean(state.account));
-  host.append(element("span", "status-dot"));
   const copy = element("div", "connection-copy");
   const waiting = state.quotes.filter(
     (q) =>
@@ -70,9 +69,9 @@ function renderConnection() {
       "",
       state.account
         ? state.account.error
-          ? "Drive needs your attention"
-          : "Connected to Google Drive"
-        : "Your quotes, in your Google Drive",
+          ? "Drive needs attention"
+          : "Google Drive"
+        : "Google Drive",
     ),
   );
   copy.append(
@@ -81,8 +80,8 @@ function renderConnection() {
       "",
       state.account
         ? state.account.error ||
-            `${state.account.email || state.account.name} · ${waiting ? `${waiting} waiting to sync` : "All caught up"}`
-        : "Formatted documents. Source links. Always yours.",
+            `${state.account.email || state.account.name} · ${waiting ? `${waiting} waiting to sync` : "Synced"}`
+        : "Not connected",
     ),
   );
   host.append(copy);
@@ -175,11 +174,10 @@ function renderQuotes() {
   if (!matches.length) {
     const empty = element("div", "empty");
     empty.append(
-      element("div", "empty-symbol", "❞"),
       element(
         "h3",
         "",
-        state.quotes.length ? "No words found." : "Start with a sentence.",
+        state.quotes.length ? "No quotes found" : "No quotes yet",
       ),
     );
     empty.append(
@@ -188,13 +186,13 @@ function renderQuotes() {
         "",
         state.quotes.length
           ? "Try another search or collection."
-          : "Highlight something that stays with you, then right-click to save it here. Your first good find is waiting.",
+          : "Highlight text and right-click to save, or add a quote.",
       ),
     );
     host.append(empty);
     return;
   }
-  for (const q of isLibrary ? matches : matches.slice(0, 3)) {
+  for (const q of isLibrary ? matches : matches.slice(0, 2)) {
     const card = element("article", "quote-card");
     const top = element("div", "quote-top");
     const star = button(q.favorite ? "★" : "☆", "favorite", async () => {
@@ -217,14 +215,14 @@ function renderQuotes() {
     const otherAccount = q.accountId && q.accountId !== state.account?.id;
     const status =
       q.status === "synced"
-        ? "✓ In Google Docs"
+        ? "In Google Docs"
         : otherAccount
           ? "Saved · reconnect original account"
           : q.status === "syncing"
-            ? "↻ Syncing to Drive…"
+            ? "Syncing…"
             : q.status === "error"
-              ? "! Sync needs attention"
-              : "○ Saved locally";
+              ? "Sync failed"
+              : "Saved locally";
     bottom.append(
       element(
         "span",
@@ -333,7 +331,7 @@ $("#quote-form").addEventListener("submit", (event) => {
     toast(
       result.duplicate
         ? "Already in your collection."
-        : "Quote saved. A good find.",
+        : "Quote saved.",
     );
   });
 });

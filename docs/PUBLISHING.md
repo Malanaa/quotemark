@@ -19,11 +19,11 @@ Quotemark — Quotes to Google Docs
 
 **Short description**
 
-Keep the words that stay with you. Save highlighted quotes and sync them to formatted Google Docs in your Drive.
+Save highlighted quotes with their sources. Sync to formatted Google Docs in your Drive.
 
 **Detailed description**
 
-Build a little home for the things you underline.
+Save what you highlight.
 
 Quotemark saves the sentences you want to remember from articles, essays, and other web pages. Highlight text, right-click, and choose “Save quote to Quotemark.” Your quote is kept locally with its source title, link, and date.
 

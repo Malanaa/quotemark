@@ -8,7 +8,7 @@ const config = await readFile(new URL("config.local.json", root), "utf8")
 const manifest = JSON.parse(
   await readFile(new URL("extension/manifest.json", root), "utf8"),
 );
-if (config.clientId) {
+if (config.clientId && !process.argv.includes("--local")) {
   if (!/^\d+-[a-z0-9]+\.apps\.googleusercontent\.com$/.test(config.clientId))
     throw new Error("Invalid Google OAuth client ID");
   manifest.oauth2 = {

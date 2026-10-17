@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Quotemark — Quotes to Google Docs",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Keep the words that stay with you. Save highlighted quotes and sync them to formatted Google Docs in your Drive.",
   "minimum_chrome_version": "120",
   "homepage_url": "https://github.com/Malanaa/quotemark",

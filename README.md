@@ -1,6 +1,6 @@
-# Quotemark ❞
+# Quotemark
 
-**Keep the words that stay with you.** An open-source Chrome extension that saves highlighted text and collects it in formatted Google Docs in your own Google Drive.
+**Save what you highlight.** An open-source Chrome extension that saves highlighted text and collects it in formatted Google Docs in your own Google Drive.
 
 [Website](https://malanaa.github.io/quotemark/) · [Source](https://github.com/Malanaa/quotemark) · [Releases](https://github.com/Malanaa/quotemark/releases) · [Privacy](PRIVACY.md) · [Google setup](docs/GOOGLE-SETUP.md) · [Publishing](docs/PUBLISHING.md)
 
@@ -11,7 +11,7 @@
 ## What it does
 
 - Highlight text on a web page, right-click, and choose **Save quote to Quotemark**.
-- Or click the extension’s **Save highlighted text** button, press **Alt+Shift+Q** (Option+Shift+Q on Mac), or paste a quote yourself.
+- Or click the extension’s **Save selection** button, press **Alt+Shift+Q** (Option+Shift+Q on Mac), or paste a quote yourself.
 - Keep the quote, page title, source URL, capture date, collection, and an optional personal note.
 - Browse, search, favorite, and export your collection as Markdown or JSON.
 - Connect Google Drive to create a **Quotemark** folder. Each collection gets a separate document each month, such as **Commonplace — October 2026**.
@@ -21,7 +21,7 @@ Your quotes are saved locally first. Failed uploads stay in the queue and retry 
 
 ## Prebuilt development preview
 
-[Download the preview](https://github.com/Malanaa/quotemark/releases/tag/v0.1.0-drive-preview). The `-local.zip` asset saves quotes locally. The `-drive-preview.zip` asset includes a real Google OAuth client for the stable development extension ID and requests only `drive.file`. Google OAuth is configured in production mode, but a live Chrome installation/sign-in/capture test is still pending. Neither asset is a Chrome Web Store release.
+[Download the preview](https://github.com/Malanaa/quotemark/releases/tag/v0.1.1-preview). The `-local.zip` asset saves quotes locally. The `-drive-preview.zip` asset includes a real Google OAuth client for the stable development extension ID and requests only `drive.file`. Google OAuth is configured in production mode, but a live Chrome installation/sign-in/capture test is still pending. Neither asset is a Chrome Web Store release.
 
 To install a ZIP, extract it, open `chrome://extensions`, enable Developer mode, choose **Load unpacked**, and select the extracted folder.
 
@@ -35,6 +35,8 @@ cd quotemark
 npm run check
 npm test
 npm run build
+# Or build without Google sign-in:
+node scripts/build.mjs --local
 ```
 
 1. Open `chrome://extensions` and enable **Developer mode**.

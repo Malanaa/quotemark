@@ -21,6 +21,8 @@ Covered with local fakes, without network access:
 
 Manually verified in Chrome on October 17, 2026: library rendering, quote creation (count increased from 3 to 4), search (one matching result), favorites (one result), collection filtering (two results), the compact popup layout, and a Markdown export downloaded through the interface and inspected on disk.
 
+For the 0.1.1 redesign, the browser preview was checked again for search, favorites, collection filtering, saving a quote with a source link and note, settings, and the export menu. The library was visually checked at 1470px and 375px widths; the narrow view had no horizontal overflow. The compact popup, monochrome icon, and promotional artwork were also visually inspected. The original Markdown download check above predates the redesign; a repeated download observation was interrupted by browser automation timing out.
+
 This preview verifies rendering and UI interactions; it is not an end-to-end Google authorization or Chrome extension installation test.
 
 The release build guard was also checked: `npm run build:release` correctly refuses to package a Drive-enabled release until a real OAuth client is configured.
