@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Quotemark</title>
+    <link rel="stylesheet" href="app.css" />
+  </head>
+  <body class="popup">
+    <header class="topbar">
+      <a class="brand" href="library.html" target="_blank"
+        ><span class="brand-mark">❞</span>quotemark<span class="brand-dot"
+          >.</span
+        ></a
+      ><button
+        id="settings"
+        class="icon-button"
+        aria-label="Settings"
+        title="Settings"
+      >
+        ⚙
+      </button>
+    </header>
+    <main>
+      <section class="intro">
+        <p class="eyebrow">YOUR PERSONAL COMMONPLACE</p>
+        <h1>Words worth<br /><em>keeping.</em></h1>
+        <p class="muted">A little home for the things you underline.</p>
+      </section>
+      <section id="connection" class="connection" aria-live="polite"></section>
+      <div class="capture-row">
+        <button id="capture" class="primary grow">
+          <span>＋</span> Save highlighted text</button
+        ><button
+          id="compose"
+          class="secondary"
+          aria-label="Paste a quote"
+          title="Paste a quote"
+        >
+          Paste
+        </button>
+      </div>
+      <p class="hint">Or highlight → right-click → Save quote to Quotemark</p>
+      <div class="section-heading">
+        <h2>Recently collected <span id="count" class="count">0</span></h2>
+        <a href="library.html" target="_blank">View all ↗</a>
+      </div>
+      <div id="quotes" class="quotes"></div>
+    </main>
+    <footer>
+      <span>Made for your curious mind.</span
+      ><a
+        href="https://github.com/Malanaa/quotemark"
+        target="_blank"
+        rel="noreferrer"
+        >Open source ↗</a
+      >
+    </footer>
+    <div id="toast" role="status" class="toast" hidden></div>
+    <dialog id="compose-dialog">
+      <form id="quote-form">
+        <div class="section-heading">
+          <h2>Keep a little something.</h2>
+          <button
+            type="button"
+            class="icon-button close-dialog"
+            aria-label="Close"
+          >
+            ×
+          </button>
+        </div>
+        <label
+          >Quote<textarea
+            name="text"
+            rows="5"
+            maxlength="20000"
+            placeholder="The words you want to remember…"
+            required
+          ></textarea></label
+        ><label
+          >Source title<input
+            name="title"
+            maxlength="500"
+            placeholder="An article, a book, a conversation" /></label
+        ><label
+          >Source link <span class="muted">(optional)</span
+          ><input name="url" type="url" placeholder="https://" /></label
+        ><label
+          >Collection<input
+            name="collection"
+            maxlength="60"
+            placeholder="Commonplace"
+            required /></label
+        ><label
+          >Your note <span class="muted">(optional)</span
+          ><textarea
+            name="note"
+            maxlength="2000"
+            rows="2"
+            placeholder="Why this stayed with you"
+          ></textarea></label
+        ><button class="primary full" type="submit">Save quote</button>
+      </form>
+    </dialog>
+    <dialog id="settings-dialog">
+      <div class="section-heading">
+        <h2>Your little library.</h2>
+        <button class="icon-button close-dialog" aria-label="Close">×</button>
+      </div>
+      <p>
+        Save quotes locally, then connect Google Drive to collect them in
+        formatted monthly documents.
+      </p>
+      <div id="settings-connection"></div>
+      <label
+        >Default collection<input
+          id="default-collection"
+          maxlength="60" /></label
+      ><button id="save-settings" class="primary full">Save preferences</button>
+      <p class="hint">
+        Drive uses a “Quotemark” folder, with one document per collection each
+        month. Disconnecting keeps your quotes and documents.
+      </p>
+      <div class="settings-links">
+        <a
+          href="https://github.com/Malanaa/quotemark/blob/main/PRIVACY.md"
+          target="_blank"
+          >Privacy</a
+        ><a
+          href="https://github.com/Malanaa/quotemark/blob/main/docs/GOOGLE-SETUP.md"
+          target="_blank"
+          >Google setup</a
+        ><a href="https://github.com/Malanaa/quotemark" target="_blank"
+          >GitHub ↗</a
+        >
+      </div>
+    </dialog>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

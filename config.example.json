@@ -1,0 +1,4 @@
+{
+  "clientId": "123456789012-replacewithyourclientid.apps.googleusercontent.com",
+  "publicKey": "COPY_THE_PUBLIC_KEY_FROM_THE_WEB_STORE_PACKAGE_PAGE_OR_extension-key.json"
+}

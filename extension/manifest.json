@@ -1,0 +1,46 @@
+{
+  "manifest_version": 3,
+  "name": "Quotemark — Quotes to Google Docs",
+  "version": "0.1.0",
+  "description": "Keep the words that stay with you. Save highlighted quotes and sync them to formatted Google Docs in your Drive.",
+  "minimum_chrome_version": "120",
+  "homepage_url": "https://github.com/Malanaa/quotemark",
+  "permissions": [
+    "contextMenus",
+    "storage",
+    "activeTab",
+    "scripting",
+    "identity",
+    "alarms"
+  ],
+  "host_permissions": [
+    "https://www.googleapis.com/*",
+    "https://docs.googleapis.com/*"
+  ],
+  "background": { "service_worker": "background.js", "type": "module" },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Save a quote with Quotemark",
+    "default_icon": {
+      "16": "icons/16.png",
+      "32": "icons/32.png",
+      "48": "icons/48.png",
+      "128": "icons/128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/16.png",
+    "32": "icons/32.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "commands": {
+    "save-quote": {
+      "suggested_key": { "default": "Alt+Shift+Q", "mac": "Alt+Shift+Q" },
+      "description": "Save highlighted text to Quotemark"
+    }
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'none'; base-uri 'none'"
+  }
+}
