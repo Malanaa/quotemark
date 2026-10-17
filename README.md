@@ -2,7 +2,7 @@
 
 **Keep the words that stay with you.** An open-source Chrome extension that saves highlighted text and collects it in formatted Google Docs in your own Google Drive.
 
-[Source](https://github.com/Malanaa/quotemark) · [Releases](https://github.com/Malanaa/quotemark/releases) · [Privacy](PRIVACY.md) · [Google setup](docs/GOOGLE-SETUP.md) · [Publishing](docs/PUBLISHING.md)
+[Website](https://malanaa.github.io/quotemark/) · [Source](https://github.com/Malanaa/quotemark) · [Releases](https://github.com/Malanaa/quotemark/releases) · [Privacy](PRIVACY.md) · [Google setup](docs/GOOGLE-SETUP.md) · [Publishing](docs/PUBLISHING.md)
 
 ![Quotemark library interface with synthetic preview data](docs/assets/library-preview.png)
 
@@ -18,6 +18,12 @@
 - Google Docs include readable typography, a collection heading, dates, notes, and clickable source titles.
 
 Your quotes are saved locally first. Failed uploads stay in the queue and retry while Chrome is running. A named-range marker written in the same Docs batch prevents a retry from duplicating a quote after a lost response. Account binding prevents queued quotes from silently uploading into another Google account.
+
+## Prebuilt development preview
+
+[Download the preview](https://github.com/Malanaa/quotemark/releases/tag/v0.1.0-drive-preview). The `-local.zip` asset saves quotes locally. The `-drive-preview.zip` asset includes a real Google OAuth client for the stable development extension ID and requests only `drive.file`. Google OAuth is configured in production mode, but a live Chrome installation/sign-in/capture test is still pending. Neither asset is a Chrome Web Store release.
+
+To install a ZIP, extract it, open `chrome://extensions`, enable Developer mode, choose **Load unpacked**, and select the extracted folder.
 
 ## Install from source
 
@@ -65,7 +71,7 @@ npm run build:release  # Requires configured Google OAuth
 
 `config.local.json` is ignored by Git. OAuth client IDs and extension public keys are public identifiers, but do not commit private signing keys, access tokens, or client secrets. `extension-key.json` contains only a public development key, which keeps unpacked installs stable across paths and computers. Store publishers must use the store-assigned public key and matching extension ID.
 
-Tests use fake Google responses; they do not contact Google or incur costs. Live OAuth and formatting verification must also be completed against Google before a public store submission. See the [publishing checklist](docs/PUBLISHING.md).
+Tests use fake Google responses; they do not contact Google or incur costs. The exact document-formatting requests have also been validated against a private synthetic Google Doc, including two guarded appends and named-range readback. The rendered PDF was visually inspected. The extension’s own Chrome OAuth and capture flow must still be validated before public store submission. See the [publishing checklist](docs/PUBLISHING.md).
 
 ## Limitations
 

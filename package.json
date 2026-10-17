@@ -8,7 +8,8 @@
     "test": "node --test",
     "check": "node scripts/check.mjs",
     "build": "node scripts/build.mjs",
-    "build:release": "node scripts/build.mjs --release"
+    "build:release": "node scripts/build.mjs --release",
+    "build:site": "node scripts/site.mjs"
   },
   "engines": {
     "node": ">=22"

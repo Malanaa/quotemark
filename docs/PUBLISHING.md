@@ -46,11 +46,11 @@ Some browser-protected pages and canvas editors do not expose text selection to 
 
 **Language**: English.
 
-**Website**: https://github.com/Malanaa/quotemark
+**Website**: https://malanaa.github.io/quotemark/
 
 **Support**: https://github.com/Malanaa/quotemark/issues
 
-**Privacy policy**: https://github.com/Malanaa/quotemark/blob/main/PRIVACY.md
+**Privacy policy**: https://malanaa.github.io/quotemark/privacy.html
 
 ## Permission justifications
 
